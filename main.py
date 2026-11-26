@@ -12,7 +12,7 @@ LINE = "My worst Monday: I woke up on time, felt proud for three seconds, then m
 
 def main() -> None:
     # Guard the bounty rules at runtime: one line, at most 140 chars, no em-dash.
-    if len(LINE) > 140 or "\n" in LINE or "—" in LINE:
+    if len(LINE) > 140 or "\n" in LINE or "\u2014" in LINE:
         raise ValueError("entry line violates the bounty rules")
     out_dir = Path(os.environ.get("MAKEFUN_OUTPUT_DIR", "/output"))
     out_dir.mkdir(parents=True, exist_ok=True)
